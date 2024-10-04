@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&J for Mathematics - Professional Graphing Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        #graph {
+            width: 80%;
+            height: 500px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        #calculator {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        button:hover {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+        .calc-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+        }
+        .calc-btn:hover {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>H&J for Mathematics - Professional Graphing Calculator</h1>
+    </header>
+
+    <!-- الآلة الحاسبة للمدخلات -->
+    <div id="calculator">
+        <input type="text" id="equation" placeholder="أدخل الدالة الرياضية (مثلاً: x^2)" />
+        <div>
+            <button class="calc-btn" onclick="insertValue('x')">x</button>
+            <button class="calc-btn" onclick="insertValue('^')">^</button>
+            <button class="calc-btn" onclick="insertValue('+')">+</button>
+            <button class="calc-btn" onclick="insertValue('-')">-</button>
+            <button class="calc-btn" onclick="insertValue('*')">*</button>
+            <button class="calc-btn" onclick="insertValue('/')">/</button>
+            <button class="calc-btn" onclick="insertValue('(')">(</button>
+            <button class="calc-btn" onclick="insertValue(')')">)</button>
+            <button class="calc-btn" onclick="clearEquation()">C</button>
+        </div>
+    </div>
+
+    <!-- زر الرسم -->
+    <div>
+        <button onclick="plotGraph()">ارسم الدالة</button>
+    </div>
+
+    <!-- عرض الرسم -->
+    <div id="graph"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
